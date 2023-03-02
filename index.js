@@ -19,19 +19,21 @@ const questions = [
     },
     // usage of project
     {
-
+        type: 'input',
+        name: 'usage',
+        message: 'Please provide a description of the uses/use cases of your project',
     },
     // license for project
     {
-
+        message:'Please select a license for your project'
     },
     // github username 
     {
-
+        message:'Please enter your github user name'
     },
-    // constributors
+    // contributors
     {
-
+        message:'Please list any github contributors'
     },
 
 ];
