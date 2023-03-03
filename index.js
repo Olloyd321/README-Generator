@@ -2,7 +2,7 @@ const inquirer = require('inquirer'); // inquirer package
 const fs = require('fs'); // file system package
 const generateMarkdown = require('./utils/generateMarkdown.js');
 console.log("Welcome to the readme generator, answer all prompts to render a readme");
-const licenses = ["MIT", "apache 2.0", "None"];
+const licenses = ["MIT", "apache2.0", "None"];
 const path = require('path');
 
 // TODO: Create an array of questions for user input
