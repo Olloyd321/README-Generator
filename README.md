@@ -15,3 +15,4 @@ From your terminal navigate to the readme-generator folder and enter "node index
 
 ### Walkthrough Video 
 
+[WalkthroughV3.webm](https://user-images.githubusercontent.com/119633009/222821314-c75cf24a-50ab-430a-84d3-cf998a1b7626.webm)
