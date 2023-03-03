@@ -2,6 +2,8 @@ const inquirer = require('inquirer') // inquirer package
 const fs = require('fs') // file system package
 const generateMarkdown = require('./utils/generateMarkdown.js')
 console.log("Welcome to the readme generator, answer all prompts to render a readme") 
+const licenses = ["MIT", "apache 2.0"]
+
 // TODO: Create an array of questions for user input
 const questions = [
     // name of project 
@@ -25,7 +27,10 @@ const questions = [
     },
     // license for project
     {
-        message:'Please select a license for your project'
+        type: 'list',
+        name: 'license',
+        message:'Please select a license for your project',
+        choices: licenses,
     },
     // github username 
     {
