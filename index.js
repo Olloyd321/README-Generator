@@ -1,8 +1,9 @@
-const inquirer = require('inquirer') // inquirer package 
-const fs = require('fs') // file system package
-const generateMarkdown = require('./utils/generateMarkdown.js')
-console.log("Welcome to the readme generator, answer all prompts to render a readme") 
-const licenses = ["MIT", "apache 2.0"]
+const inquirer = require('inquirer'); // inquirer package 
+const fs = require('fs'); // file system package
+const generateMarkdown = require('./utils/generateMarkdown.js');
+console.log("Welcome to the readme generator, answer all prompts to render a readme");
+const licenses = ["MIT", "apache 2.0", "None"];
+const path = require('path');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -19,6 +20,13 @@ const questions = [
         name: 'description',
         message: 'please provide a description of your project',
     },
+    // Installation
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What command should be run to install needed dependencies',
+        default: 'npm i'
+    },
     // usage of project
     {
         type: 'input',
@@ -32,30 +40,52 @@ const questions = [
         message:'Please select a license for your project',
         choices: licenses,
     },
+    // contributing
+    {
+        type: 'input',
+        name: 'contributing',   
+        message:'Please list any contribution guidelines'
+    },
+    // Tests
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What command should be run to perform tests?',
+        default: 'npm test'
+    },
     // github username 
     {
+        type: 'input',
+        name: 'githubUserName',
         message:'Please enter your github user name'
+
     },
-    // contributors
+    // user email 
     {
-        message:'Please list any github contributors'
+        type: 'input',
+        name: 'UserEmail',
+        message:'Please enter your email address'
+
     },
 
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile (fileName, data)  
-    { 
-     console.log("ReadmMe generated")
+    return fs.writeFileSync (path.join (process.cwd(), fileName), data);  
 
-    };
 }
+
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
-}
+    inquirer.prompt(questions).then((responses) => {
+        console.log('Successful! ReadMe generated.');
+        writeToFile('NEWREADME.md', generateMarkdown({
+            ...responses
+        }));
+    });
+};
 
 // Function call to initialize app
 init();
