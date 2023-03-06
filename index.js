@@ -64,7 +64,7 @@ const questions = [
     {
         type: 'input',
         name: 'UserEmail',
-        message:'Please enter your email address'
+        message:'Please enter your email address, or skip and the user will be directed to your github'
 
     },
 
