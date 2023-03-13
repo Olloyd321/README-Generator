@@ -6,6 +6,7 @@ This project was created to develop an application that renders a readme file so
 
 ## Usage 
 Using this application involves using nodejs to run the applciation from the terminal.
+please have inquirer v8, fs and npm installed
 From your terminal navigate to the readme-generator folder and enter "node index.js" and the file should run. 
 
 ## Challenges
